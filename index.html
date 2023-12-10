@@ -13,66 +13,45 @@
 <body>
 
   <div class="container">
+    <!-- add update note -->
     <div class="add-note">
-      <button><i class="bi bi-plus-square-fill"></i></button>
+      <button id="add-note"><i class="bi bi-plus-square-fill"></i></button>
     </div>
-
+    <div class="dashboard" id="dashboard">
+      <div class="note-board">
+        <form action="">
+          <div class="note-color-container">
+            <ul>
+              <li data-color="#90EE90" onclick="changebg(this)" class="note-color light-green"></li>
+              <li data-color="#FFB6C1" onclick="changebg(this)" class="note-color light-pink"></li>
+              <li data-color="#FFFFE0" onclick="changebg(this)" class="note-color light-yellow"></li>
+              <li data-color="#D3D3D3" onclick="changebg(this)" class="note-color light-grey"></li>
+              <li data-color="#E6E6FA" onclick="changebg(this)" class="note-color lavender"></li>
+              <li data-color="#FFDAB9" onclick="changebg(this)" class="note-color peach"></li>
+              <li data-color="#98FB98" onclick="changebg(this)" class="note-color mint-green"></li>
+              <li data-color="#D8BFD8" onclick="changebg(this)" class="note-color pale-purple"></li>
+              <li data-color="#87CEEB" onclick="changebg(this)" class="note-color sky-blue"></li>
+            </ul>         
+          </div>
+          <div class="note-title">
+            <input type="text" name="note-title">
+          </div>
+          <div class="note-body">
+            <textarea name="note-body" id="note-body" cols="30" rows="10"></textarea>
+          </div>
+          <div class="note-btn">
+            <button type="submit"><i class="bi bi-floppy-fill"></i></button>
+            <button><i class="bi bi-trash-fill"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- nav bar -->
     <nav>
       <h2>dragon note</h2>
-      <!-- <a>login</a> -->
     </nav>
-
+    <!-- all notes -->
     <div class="all-notes">
-      <div class="note">
-        <div class="title">
-          <p>title</p>
-        </div>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi velit doloremque et a alias? Repellendus,
-            saepe maiores, libero aut voluptatibus molestiae, necessitatibus adipisci ratione vero nesciunt magnam
-            perferendis deserunt labore eaque voluptatum! Provident odit rem quis cumque dolore quod architecto adipisci
-            nulla quia. Deleniti est libero ab aut explicabo consequuntur.</p>
-        </div>
-        <div class="edit">
-          <button><i class="bi bi-pencil-square"></i></button>
-        </div>
-      </div>
-      <div class="note">
-        <div class="title">
-          <p>title</p>
-        </div>
-        <div class="content">
-          <p>content</p>
-        </div>
-        <div class="edit">
-          <button><i class="bi bi-pencil-square"></i></button>
-
-        </div>
-      </div>
-      <div class="note">
-        <div class="title">
-          <p>title</p>
-        </div>
-        <div class="content">
-          <p>content</p>
-        </div>
-        <div class="edit">
-          <button><i class="bi bi-pencil-square"></i></button>
-
-        </div>
-      </div>
-      <div class="note">
-        <div class="title">
-          <p>title</p>
-        </div>
-        <div class="content">
-          <p>content</p>
-        </div>
-        <div class="edit">
-          <button><i class="bi bi-pencil-square"></i></button>
-
-        </div>
-      </div>
       <div class="note">
         <div class="title">
           <p>title</p>
@@ -131,7 +110,7 @@
   </div>
 
 
-
+  <script src="main.js"></script>
 </body>
 
 </html>
