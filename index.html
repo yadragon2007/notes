@@ -17,32 +17,21 @@
     <div class="add-note">
       <button id="add-note"><i class="bi bi-plus-square-fill"></i></button>
     </div>
-    <div class="dashboard" id="dashboard">
+    <div class="dashboard" style="display: none;" id="dashboard">
       <div class="note-board">
+        <i class="bi bi-x-lg" id="cross"></i>
         <form action="">
-          <div class="note-color-container">
-            <ul>
-              <li data-color="#90EE90" onclick="changebg(this)" class="note-color light-green"></li>
-              <li data-color="#FFB6C1" onclick="changebg(this)" class="note-color light-pink"></li>
-              <li data-color="#FFFFE0" onclick="changebg(this)" class="note-color light-yellow"></li>
-              <li data-color="#D3D3D3" onclick="changebg(this)" class="note-color light-grey"></li>
-              <li data-color="#E6E6FA" onclick="changebg(this)" class="note-color lavender"></li>
-              <li data-color="#FFDAB9" onclick="changebg(this)" class="note-color peach"></li>
-              <li data-color="#98FB98" onclick="changebg(this)" class="note-color mint-green"></li>
-              <li data-color="#D8BFD8" onclick="changebg(this)" class="note-color pale-purple"></li>
-              <li data-color="#87CEEB" onclick="changebg(this)" class="note-color sky-blue"></li>
-            </ul>         
-          </div>
           <div class="note-title">
-            <input type="text" name="note-title">
+            <input type="text" name="note-title" placeholder="title...">
           </div>
           <div class="note-body">
-            <textarea name="note-body" id="note-body" cols="30" rows="10"></textarea>
+            <textarea name="note-body" id="note-body" placeholder="write here..."></textarea>
           </div>
           <div class="note-btn">
             <button type="submit"><i class="bi bi-floppy-fill"></i></button>
-            <button><i class="bi bi-trash-fill"></i></button>
+            <button type="button"><i class="bi bi-trash-fill"></i></button>
           </div>
+          <input type="hidden" name="bgColor" id="bgColorInput">
         </form>
       </div>
     </div>
