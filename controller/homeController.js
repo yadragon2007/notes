@@ -7,7 +7,6 @@ const home_index_get = (req,res) => {
   }else{
     res.redirect('/login')
   }
-  
 }
 
 module.exports = {

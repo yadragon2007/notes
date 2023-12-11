@@ -2,10 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>dragon notes</title>
-  <link rel="stylesheet" href="style.css">
+  <%- include('./partials/head.ejs') %>
 
 
 </head>
@@ -13,24 +10,26 @@
 <body>
 
   <div class="container">
-    <nav>
-      <h2>dragon note</h2>
-    </nav>
+    <%- include('./partials/nav.ejs') %>
+
     <div class="login ">
       <div class="background">
-        <form action="">
+        <form action="/createAccount" method="post">
           <h2 class="createAccH2" style="font-size: 32px;">create account</h2>
           <div class="inputs">
-            <input type="text" name="username" id="username" placeholder="user name">
+            <input type="text" name="userName" id="username" placeholder="user name">
             <input type="password" name="password" id="password" placeholder="password">
           </div>
           <div class="btn">
-            <button type="submit">login</button>
+            <button type="submit">create</button>
           </div>
-          <a href="login.html">already have account??</a>
+          <a href="/login">already have account??</a>
         </form>
       </div>
     </div>
+
+    <%- include('./partials/footer.ejs') %>
+
   </div>
 
 

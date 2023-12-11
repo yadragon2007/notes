@@ -16,14 +16,19 @@ const mongoose = require("mongoose");
 main().catch((err) => console.log(err));
 
 async function main() {
+  // connect to the db
   await mongoose.connect(
     `mongodb+srv://${process.env.databaseUserName}:${process.env.databaseUserPassword}@cluster0.bucun0e.mongodb.net/?retryWrites=true&w=majority`
   );
 }
 // routes
 const home = require("./routes/home");
+const login = require("./routes/login");
+const createAcc = require("./routes/createAccount");
 
 app.use(home);
+app.use(login);
+app.use(createAcc)
 // 404
 app.use((req, res) => {
   res.status(404).send("notFound");
