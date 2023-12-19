@@ -15,12 +15,14 @@
 
       <div class="login">
         <div class="background">
-          <form action="">
+          <form action="/login" method="post">
             <h2>login</h2>
             <div class="inputs">
-              <input type="text" name="username" id="username" placeholder="user name">
+              <input type="text" name="userName" id="username" placeholder="user name">
               <input type="password" name="password" id="password" placeholder="password">
+              <p><%= err %></p>
             </div>
+            
             <div class="btn">
               <button type="submit">login</button>
             </div>
@@ -29,6 +31,7 @@
         </div>
       </div>
       <%- include('./partials/footer.ejs') %>
+
   </div>
 
 

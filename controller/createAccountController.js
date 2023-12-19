@@ -2,14 +2,15 @@ const Accounts = require("../models/accountSchema");
 const bcrypt = require("bcrypt");
 
 const createAcc_createAcc_get = (req, res) => {
-  res.render("createAcc", {});
+  res.render("createAcc", {
+    err:""
+  });
 };
 // Create a new account and save it to the database
 const createAcc_createAcc_post = async (req, res) => {
   const { userName, password } = req.body;
   // Check if username is already in use
   const Account = await Accounts.find({ userName: userName }).exec();
-  console.log(Account)
   if (Account.length == 0) {
     // hash the password
     const salt = await bcrypt.genSalt(10);
@@ -33,11 +34,17 @@ const createAcc_createAcc_post = async (req, res) => {
     // redirect
     res.redirect('/')
   } else {
-    console.log("err");
+    res.redirect("/createAccount/err")
   }
 };
-
+const createAccERR_createAcc_get = (req,res) => {
+  res.render("createAcc", {
+    err:"this user name is already used. try another one."
+  });
+  
+}
 module.exports = {
   createAcc_createAcc_get,
   createAcc_createAcc_post,
+  createAccERR_createAcc_get,
 };

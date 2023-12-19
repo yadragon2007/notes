@@ -12,23 +12,26 @@
   <div class="container">
     <%- include('./partials/nav.ejs') %>
 
-    <div class="login ">
-      <div class="background">
-        <form action="/createAccount" method="post">
-          <h2 class="createAccH2" style="font-size: 32px;">create account</h2>
-          <div class="inputs">
-            <input type="text" name="userName" id="username" placeholder="user name">
-            <input type="password" name="password" id="password" placeholder="password">
-          </div>
-          <div class="btn">
-            <button type="submit">create</button>
-          </div>
-          <a href="/login">already have account??</a>
-        </form>
+      <div class="login ">
+        <div class="background">
+          <form action="/createAccount" method="post">
+            <h2 class="createAccH2" style="font-size: 32px;">create account</h2>
+            <div class="inputs">
+              <input type="text" name="userName" id="username" placeholder="user name">
+              <input type="password" name="password" id="password" placeholder="password">
+              <p>
+                <%= err %>
+              </p>
+            </div>
+            <div class="btn">
+              <button type="submit">create</button>
+            </div>
+            <a href="/login">already have account??</a>
+          </form>
+        </div>
       </div>
-    </div>
 
-    <%- include('./partials/footer.ejs') %>
+      <%- include('./partials/footer.ejs') %>
 
   </div>
 

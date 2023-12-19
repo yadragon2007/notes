@@ -10,86 +10,65 @@
 <body>
 
   <div class="container">
-    <!-- add update note -->
+    <!-- loader -->
+    <div class="loaderContainer" style="display: none;">
+      <div class="loader"></div>
+    </div>
+    <!-- add note -->
     <div class="add-note">
       <button id="add-note"><i class="bi bi-plus-square-fill"></i></button>
     </div>
     <div class="dashboard" style="display: none;" id="dashboard">
       <div class="note-board">
         <i class="bi bi-x-lg" id="cross"></i>
-        <form action="">
+        <form action="" id="form" method="post">
           <div class="note-title">
-            <input type="text" name="note-title" placeholder="title...">
+            <input type="text" name="noteTitle" placeholder="title...">
           </div>
           <div class="note-body">
-            <textarea name="note-body" id="note-body" placeholder="write here..."></textarea>
+            <textarea name="notebody" id="noteBody" placeholder="write here..."></textarea>
           </div>
           <div class="note-btn">
             <button type="submit"><i class="bi bi-floppy-fill"></i></button>
-            <button type="button"><i class="bi bi-trash-fill"></i></button>
+            <button type="button" onclick="deleteNote('<%= user._id %>',this.id)" class="deleteNoteBtn"><i
+                class="bi bi-trash-fill"></i></button>
           </div>
-          <input type="hidden" name="bgColor" id="bgColorInput">
+          <input type="hidden" name="bgColorCode" id="bgColorCodeInput">
+          <input type="hidden" name="bgColorName" id="bgColorNameInput">
         </form>
       </div>
     </div>
     <!-- nav bar -->
     <%- include('./partials/nav.ejs') %>
-    <!-- all notes -->
-    <div class="all-notes">
-      <div class="note">
-        <div class="title">
-          <p>title</p>
-        </div>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi velit doloremque et a alias? Repellendus,
-            saepe maiores, libero aut voluptatibus molestiae, necessitatibus adipisci ratione vero nesciunt magnam
-            perferendis deserunt labore eaque voluptatum! Provident odit rem quis cumque dolore quod architecto adipisci
-            nulla quia. Deleniti est libero ab aut explicabo consequuntur.</p>
-        </div>
-        <div class="edit">
-          <button><i class="bi bi-pencil-square"></i></button>
-        </div>
-      </div>
-      <div class="note">
-        <div class="title">
-          <p>title</p>
-        </div>
-        <div class="content">
-          <p>content</p>
-        </div>
-        <div class="edit">
-          <button><i class="bi bi-pencil-square"></i></button>
+      <!-- all notes -->
+      <div class="all-notes">
+        <% let i=0 %>
+          <% notes.forEach(note=> { %>
 
-        </div>
-      </div>
-      <div class="note">
-        <div class="title">
-          <p>title</p>
-        </div>
-        <div class="content">
-          <p>content</p>
-        </div>
-        <div class="edit">
-          <button><i class="bi bi-pencil-square"></i></button>
+            <div class="note <%= note.bgColorName %>" id="note<%= i %>"
+              onclick="eidtNote_getData('<%= i %>','<%= user._id %>')">
+              <div class="edit">
+                <p>edit</p>
+              </div>
+              <div class="title" style="filter: brightness(100%);">
+                <p>
+                  <%= note.noteTitle %>
+                </p>
+              </div>
+              <div class="content">
+                <p>
+                  <%= note.notebody %>
+                </p>
+              </div>
+            </div>
+            <% i++ %>
 
-        </div>
-      </div>
-      <div class="note">
-        <div class="title">
-          <p>title</p>
-        </div>
-        <div class="content">
-          <p>content</p>
-        </div>
-        <div class="edit">
-          <button><i class="bi bi-pencil-square"></i></button>
+              <% }) %>
 
-        </div>
       </div>
-    </div>
 
-  
-    <%- include('./partials/footer.ejs') %>
+
+      <%- include('./partials/footer.ejs') %>
   </div>
 
 

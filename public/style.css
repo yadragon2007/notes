@@ -56,7 +56,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+input{
+  outline: none;
+}
 a {
   all: unset;
 }
@@ -178,13 +180,34 @@ nav a {
 .all-notes .note {
   width: 100%;
   min-height: 250px;
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  background-color: #87CEEB;
   border-radius: 20px;
   overflow: hidden;
+  cursor: pointer;
+  transition: .5;
+}
+.all-notes .note .edit{
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #f0f8ff;
+  font-size: 25px;
+  padding: 10px 30px;
+  border: #f0f8ff 5px solid;
+  opacity: 0;
+  display: none;
+}
+.all-notes .note:hover {
+  filter: brightness(50%);
+}
+.all-notes .note:hover .edit{
+  opacity: 1;
+  display: block;
 }
 
 .all-notes .note .title {
@@ -202,13 +225,13 @@ nav a {
   font-size: 17px;
 }
 
-.all-notes .note .edit {
+/* .all-notes .note .edit {
   position: relative;
   bottom: 3%;
   left: 40%;
-}
+} */
 
-.all-notes .note .edit button {
+/* .all-notes .note .edit button {
   background-color: rgb(255, 255, 255);
   border: none;
   color: rgb(0, 0, 0);
@@ -216,7 +239,7 @@ nav a {
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
-}
+} */
 
 /* login */
 .login {
@@ -273,6 +296,13 @@ nav a {
   padding: 10px 20px;
   border-radius: 10px;
   outline: none;
+}
+
+.login .background form .inputs p {
+  font-size: 12px;
+  color: red;
+  letter-spacing: 1px;
+  text-transform: capitalize;
 }
 
 .login .background form .btn {
@@ -433,7 +463,8 @@ footer p {
   font-size: 20px;
   color: rgb(255, 0, 0);
 }
-.dashboard .note-board .bi-x-lg{
+
+.dashboard .note-board .bi-x-lg {
   position: absolute;
   top: 10px;
   left: 94%;
