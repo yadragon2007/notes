@@ -15,7 +15,8 @@ const home_index_get = async (req, res) => {
         notes: account.notes,
       });
     } else {
-      res.redirect("/login");
+      res.clearCookie('userData')
+      res.redirect('/')
     }
   } else {
     res.redirect("/login");
